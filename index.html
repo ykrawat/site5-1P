@@ -1,5 +1,11 @@
-<head>    
-<!-- Signals Gateway Pixel + Meta Pixel Code -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fixed Pixel Test</title>
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+   <!-- Signals Gateway Pixel + Meta Pixel Code -->
     <script>
       !(function(f,b,e,v,vv,n,nn,t,s,tt,ss){
         if (!f.cbq){nn = f.cbq = function(){nn.initialized ? nn.apply(f.cbq, arguments) : nn.queue.push(arguments);};
@@ -30,37 +36,93 @@
       cbq('set', 'integrationMethod', 'forkFromSnippetCode');
     </script>
   <!-- End Signals Gateway Pixel + Meta Pixel Code -->
- <p>The following is a Meta button test:</p>
-<button id="addToCartButton">Add to cart</button>
-<button id="addToCartButtonCustom">Add to cart Custom</button>
-<button id="addToCartButtonSingle">Add to cart Single</button>
-<button id="addToCartButtonSingleCustom">Add to cart Single Custom</button>
+</head>
+<body>
+    <h1>Pixel Event Test Page</h1>
+    <p>The following are Meta button tests:</p>
+    
+    <button id="addToCartButton">Add to cart</button>
+    <button id="addToCartButtonCustom">Add to cart Custom</button>
+    <button id="addToCartButtonSingle">Add to cart Single</button>
+    <button id="addToCartButtonSingleCustom">Add to cart Single Custom</button>
 
-<script type="text/javascript">
-  $('#addToCartButton').click(function() {
-    fbq('track', 'AddToCart');
-    fbq('track', 'AddToCart', {currency: "USD", value: 20.00});
-    fbq('track', 'AddToCart', {currency: "USD", value: 20.10}, {eventID:"track.0930"});
-  });
+    <!-- Event handlers at bottom of body -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        console.log('jQuery loaded and DOM ready');
+        
+        $('#addToCartButton').click(function() {
+          console.log('AddToCart button clicked');
+          try {
+            fbq('track', 'AddToCart');
+            fbq('track', 'AddToCart', {currency: "USD", value: 20.00});
+            fbq('track', 'AddToCart', {currency: "USD", value: 20.10}, {eventID:"track.0930"});
+            console.log('AddToCart events sent');
+          } catch(e) {
+            console.error('Error sending AddToCart events:', e);
+          }
+        });
 
-  $('#addToCartButtonCustom').click(function() {
-    fbq('trackCustom', 'AddToCartCustom');
-    fbq('trackCustom', 'AddToCartCustom', {currency: "USD", value: 21.00});
-    fbq('trackCustom', 'AddToCartCustom', {currency: "USD", value: 21.10}, {eventID:"trackCustom.0930"});
-  });
+        $('#addToCartButtonCustom').click(function() {
+          console.log('AddToCartCustom button clicked');
+          try {
+            fbq('trackCustom', 'AddToCartCustom');
+            fbq('trackCustom', 'AddToCartCustom', {currency: "USD", value: 21.00});
+            fbq('trackCustom', 'AddToCartCustom', {currency: "USD", value: 21.10}, {eventID:"trackCustom.0930"});
+            console.log('AddToCartCustom events sent');
+          } catch(e) {
+            console.error('Error sending AddToCartCustom events:', e);
+          }
+        });
 
-  $('#addToCartButtonSingle').click(function() {
-    fbq('trackSingle', '45202414779652', 'AddToCartSingle');
-    fbq('trackSingle', '45202414779652', 'AddToCartSingle', {currency: "USD", value: 22.00});
-    fbq('trackSingle', '45202414779652', 'AddToCartSingle', {currency: "USD", value: 22.10}, {eventID:"trackSingle.0930"});
-  });
+        $('#addToCartButtonSingle').click(function() {
+          console.log('AddToCartSingle button clicked');
+          try {
+            fbq('trackSingle', '45202414779652', 'AddToCartSingle');
+            fbq('trackSingle', '45202414779652', 'AddToCartSingle', {currency: "USD", value: 22.00});
+            fbq('trackSingle', '45202414779652', 'AddToCartSingle', {currency: "USD", value: 22.10}, {eventID:"trackSingle.0930"});
+            console.log('AddToCartSingle events sent');
+          } catch(e) {
+            console.error('Error sending AddToCartSingle events:', e);
+          }
+        });
 
-  $('#addToCartButtonSingleCustom').click(function() {
-    fbq('trackSingleCustom', '45202414779652', 'AddToCartSingleCustom');
-    fbq('trackSingleCustom', '45202414779652', 'AddToCartSingleCustom', {currency: "USD", value: 23.00});
-    fbq('trackSingleCustom', '45202414779652', 'AddToCartSingleCustom', {currency: "USD", value: 23.10}, {eventID:"AddToCartSingleCustom.0930"});
-  });
-</script>
+        $('#addToCartButtonSingleCustom').click(function() {
+          console.log('AddToCartSingleCustom button clicked');
+          try {
+            fbq('trackSingleCustom', '45202414779652', 'AddToCartSingleCustom');
+            fbq('trackSingleCustom', '45202414779652', 'AddToCartSingleCustom', {currency: "USD", value: 23.00});
+            fbq('trackSingleCustom', '45202414779652', 'AddToCartSingleCustom', {currency: "USD", value: 23.10}, {eventID:"AddToCartSingleCustom.0930"});
+            console.log('AddToCartSingleCustom events sent');
+          } catch(e) {
+            console.error('Error sending AddToCartSingleCustom events:', e);
+          }
+        });
+      });
+    </script>
 
-</head> 
+    <!-- Debug Script -->
+    <script>
+      // Debug function to check pixel status
+      function checkPixelStatus() {
+        console.log('Meta Pixel (fbq) available:', typeof fbq !== 'undefined');
+        console.log('Cloudbridge Pixel (cbq) available:', typeof cbq !== 'undefined');
+        console.log('jQuery available:', typeof $ !== 'undefined');
+        
+        // Check if pixels are initialized
+        if (typeof fbq !== 'undefined') {
+          console.log('fbq queue length:', fbq.queue ? fbq.queue.length : 'N/A');
+        }
+        if (typeof cbq !== 'undefined') {
+          console.log('cbq queue length:', cbq.queue ? cbq.queue.length : 'N/A');
+        }
+      }
+      
+      // Run debug check after page loads
+      setTimeout(checkPixelStatus, 2000);
+    </script>
+</body>
+</html>
+
+
 
