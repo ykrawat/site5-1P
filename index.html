@@ -5,7 +5,7 @@
     <!-- jQuery Library -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
-   <!-- Signals Gateway Pixel + Meta Pixel Code -->
+  <!-- Signals Gateway Pixel + Meta Pixel Code -->
     <script>
       !(function(f,b,e,v,vv,n,nn,t,s,tt,ss){
         if (!f.cbq){nn = f.cbq = function(){nn.initialized ? nn.apply(f.cbq, arguments) : nn.queue.push(arguments);};
@@ -14,26 +14,18 @@
         tt = b.createElement(e); tt.async = !0; tt.src = vv; ss=b.getElementsByTagName(e)[0]; ss.parentNode.insertBefore(tt,ss);}
         if (f.xbq) return; if (f.fbq) f.xbq=f.fbq;
         n = f.fbq = function()
-       {if((arguments[0]==='track'||arguments[0]==='trackCustom')&&arguments.length<3)arguments=[...arguments,{},{eventID:arguments[1]+"."+Date.now().toString()+Math.random().toString(36)}];
-          else if((arguments[0]==='track'||arguments[0]==='trackCustom')&&arguments.length<4)arguments=[...arguments,{eventID:arguments[1]+"."+Date.now().toString()+Math.random().toString(36)}];
-          else if((arguments[0]==='trackSingle'||arguments[0]==='trackSingleCustom')&&arguments.length<4)arguments=[...arguments,{},{eventID:arguments[2]+"."+Date.now().toString()+Math.random().toString(36)}];
-          else if((arguments[0]==='trackSingle'||arguments[0]==='trackSingleCustom')&&arguments.length<5)arguments=[...arguments,{eventID:arguments[2]+"."+Date.now().toString()+Math.random().toString(36)}];
-        if(arguments[0]==='track'){if(!arguments[3] || !arguments[3].eventID) arguments[3]={...arguments[3],eventID:arguments[1]+"."+Date.now().toString()+"."+Math.random().toString(36)}};
-        if(arguments[0].startsWith('trackSingle')){if(!arguments[4]||!arguments[4].eventID) arguments[4]={...arguments[4],eventID:arguments[2]+"."+Date.now().toString()+"."+Math.random().toString(36)}};
-        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-        if (arguments[0].startsWith('track')) {
-          if(arguments[0].startsWith('trackSingle')) arguments[1]='3510123408241937578';
-          f.cbq.initialized ? f.cbq.apply(f.cbq, arguments) : f.cbq.queue.push(arguments);}
-        }
-       if(!f._fbq) f._fbq = n;
+        {if(arguments[0].startsWith('track')){n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);f.cbq.initialized ? f.cbq.apply(f.cbq, arguments) : f.cbq.queue.push(arguments);}
+        else{n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);}};
+        if(!f._fbq) f._fbq = n;
         n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = (f.xbq)?f.xbq.queue:[];
         t = b.createElement(e); t.async = !0; t.src = v;s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
       })
-      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', 'https://web.capig-19df7701-e2e-agency.cbinternal.org/sdk/3510123408241937578/events.js');
-      fbq('init', '45202414779652');fbq('track', 'PageView');
-      cbq('setHost', 'https://capig-19df7701-e2e-agency.cbinternal.org/');
-    cbq('init', '3510123408241937578');
+      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', 'https://detmrf2ertmkx.cloudfront.net/sdk/9135485042114309450/events.js');
+      fbq('init', '5065253167032623');fbq('track', 'PageView');
+      cbq('setHost', 'https://iutghgv.sgqa1.cbinternal.com/');
+    cbq('init', '9135485042114309450');
       cbq('set', 'integrationMethod', 'forkFromSnippetCode');
+      cbq('track', 'PageView');
     </script>
   <!-- End Signals Gateway Pixel + Meta Pixel Code -->
 </head>
